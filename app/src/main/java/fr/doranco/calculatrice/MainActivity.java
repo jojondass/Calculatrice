@@ -173,8 +173,7 @@ public class MainActivity extends AppCompatActivity {
             if(update) {
                 update = false;
             }
-            else {
-                if (!ecran.getText().equals("0"))
+            else if (!ecran.getText().equals("0")) {
                     str=ecran.getText()+str;
             }
             ecran.setText(str);
@@ -186,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
             ecran.setText(String.valueOf(chiffre));
         }
         else {
-            chiffre = Double.valueOf(ecran.getText().toString()).doubleValue();
+            chiffre = Double.parseDouble(ecran.getText().toString());
             clickOperateur = true;
         }
         operateur = "/";
@@ -199,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
             ecran.setText(String.valueOf(chiffre));
         }
         else {
-            chiffre = Double.valueOf(ecran.getText().toString()).doubleValue();
+            chiffre = Double.parseDouble(ecran.getText().toString());
             clickOperateur = true;
         }
         operateur = "*";
@@ -214,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
                 ecran.setText(String.valueOf(chiffre));
             }
             else {
-                chiffre = Double.valueOf(ecran.getText().toString()).doubleValue();
+                chiffre = Double.parseDouble(ecran.getText().toString());
                 clickOperateur = true;
             }
             operateur = "+";
@@ -227,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
             ecran.setText(String.valueOf(chiffre));
         }
         else {
-            chiffre = Double.valueOf(ecran.getText().toString()).doubleValue();
+            chiffre = Double.parseDouble(ecran.getText().toString());
             clickOperateur = true;
         }
         operateur = "-";
@@ -251,24 +250,24 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    //methode calcul
+    //methodes calcul
 
     private void calcul() {
         if (operateur.equals("*")) {
-            chiffre = chiffre * Double.valueOf(ecran.getText().toString()).doubleValue();
+            chiffre = chiffre * Double.parseDouble(ecran.getText().toString());
             ecran.setText(String.valueOf(chiffre));
         }
         if (operateur.equals("+")) {
-            chiffre = chiffre + Double.valueOf(ecran.getText().toString()).doubleValue();
+            chiffre = chiffre + Double.parseDouble(ecran.getText().toString());
             ecran.setText(String.valueOf(chiffre));
         }
         if (operateur.equals("-")) {
-            chiffre = chiffre - Double.valueOf(ecran.getText().toString()).doubleValue();
+            chiffre = chiffre - Double.parseDouble(ecran.getText().toString());
             ecran.setText(String.valueOf(chiffre));
         }
         if (operateur.equals("/")) {
             try {
-                chiffre = chiffre + Double.valueOf(ecran.getText().toString()).doubleValue();
+                chiffre = chiffre / Double.parseDouble(ecran.getText().toString());
                 ecran.setText(String.valueOf(chiffre));
             } catch (Exception e) {
                 ecran.setText(0);
